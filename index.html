@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="./" />
+    <title>mydays Outdoor-Analyse für Exclusiva Sport GmbH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- Add Babel to transpile JSX/TSX in the browser -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+      @keyframes subtle-scale {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+      .animate-subtle-scale {
+        animation: subtle-scale 4s infinite ease-in-out;
+      }
+      .export-container-active {
+        position: absolute;
+        left: -9999px; /* Move off-screen instead of using opacity */
+        top: 0;
+        width: 1920px;
+        height: 1080px;
+      }
+      .export-container-active .slide-wrapper {
+        width: 1920px;
+        height: 1080px;
+        position: relative;
+      }
+      /* Override h-screen for export */
+      .export-container-active .h-screen {
+        height: 1080px !important;
+      }
+      @keyframes animated-gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animated-gradient-background {
+        background: linear-gradient(-45deg, #0f172a, #1f2937, #991b1b, #1f2937);
+        background-size: 400% 400%;
+        animation: animated-gradient 15s ease infinite;
+      }
+
+      /* New Entrance Animations */
+      @keyframes fade-in-up {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fade-in-down {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes zoom-in {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      
+      .animate-fade-in-up, .animate-fade-in-down, .animate-zoom-in {
+        opacity: 0; /* Start hidden */
+      }
+      
+      .slide-active .animate-fade-in-up {
+        animation: fade-in-up 0.6s ease-out forwards;
+      }
+      .slide-active .animate-fade-in-down {
+        animation: fade-in-down 0.6s ease-out forwards;
+      }
+      .slide-active .animate-zoom-in, .z-40.animate-zoom-in {
+        animation: zoom-in 0.5s ease-out forwards;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-900">
+    <div id="root"></div>
+    <!-- Update script type to "text/babel" for in-browser transpilation -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
